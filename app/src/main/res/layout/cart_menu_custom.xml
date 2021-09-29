@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="30dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end" >
+
+    <!-- Menu Item Image -->
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_shopping_cart_24"
+        android:contentDescription="@string/cart" />
+
+    <!-- Badge Count -->
+    <TextView
+        android:id="@+id/actionbar_notifcation_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/round_button"
+        android:padding="2dp"
+        android:text="@string/_99"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.shoppingappv2.fragment.splash.SplashFragment"
+        tools:layout="@layout/fragment_splash" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.shoppingappv2.fragment.home.HomeFragment"
+        android:label="@string/shopping_app"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productBottomSheetFragment"
+            app:destination="@id/productBottomSheetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.shoppingappv2.fragment.cart.CartFragment"
+        android:label="@string/cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="currentCartItem"
+            app:argType="com.example.shoppingappv2.data.model.CartModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.shoppingappv2.fragment.productDetail.ProductDetailFragment"
+        android:label="@string/detail"
+        tools:layout="@layout/fragment_product_detail" >
+        <action
+            android:id="@+id/action_productDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="currentProduct"
+            app:argType="com.example.shoppingappv2.data.model.ProductModel" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/productBottomSheetFragment"
+        android:name="com.example.shoppingappv2.fragment.home.bottomSheet.ProductBottomSheetFragment"
+        android:label="product_bottom_sheet"
+        tools:layout="@layout/product_bottom_sheet" >
+        <action
+            android:id="@+id/action_productBottomSheetFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </dialog>
+</navigation>

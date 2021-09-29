@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="product"
+            type="com.example.shoppingappv2.data.model.ProductModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:padding="10dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/prodCard"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/cardProdDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/cardProdImg"
+                    loadImageFromUrl="@{product.imageview}"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/card_product_image" />
+
+                <LinearLayout
+                    android:layout_width="256dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/cardProdName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{product.title}"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cardProdDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@{product.description}"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/cardProdPrice"
+                        setPrice="@{product.price}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/cardAddProdToCart"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/card_add_to_cart"
+                android:padding="10dp"
+                android:src="@drawable/plus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/cardAddedProdToCart"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/added_to_the_cart"
+                android:padding="10dp"
+                android:src="@drawable/ic_check_circle"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
